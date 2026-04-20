@@ -85,9 +85,9 @@ UPDATE_PACKAGE "luci-app-bandix" "timsaya/luci-app-bandix" "main"
 #######################################
 #DIY Settings
 #######################################
-WRT_IP="192.168.1.1"
-WRT_NAME="FWRT"
-WRT_WIFI="FWRT"
+WRT_IP="192.168.6.1"
+WRT_NAME="GWRT"
+WRT_WIFI="GWRT"
 #修改immortalwrt.lan关联IP
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 
@@ -148,26 +148,17 @@ done
 
 # Configuration lines to append to .config
 provided_config_lines=(
-    "CONFIG_PACKAGE_luci-app-zerotier=y"
-    "CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y"
     "CONFIG_PACKAGE_luci-app-adguardhome=y"
     "CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y"
-    "CONFIG_PACKAGE_luci-app-poweroff=y"
-    "CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y"
     "CONFIG_PACKAGE_cpufreq=y"
     "CONFIG_PACKAGE_luci-app-cpufreq=y"
     "CONFIG_PACKAGE_luci-i18n-cpufreq-zh-cn=y"
     "CONFIG_PACKAGE_luci-app-ttyd=y"
     "CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y"
     "CONFIG_PACKAGE_ttyd=y"
-    "CONFIG_PACKAGE_luci-app-homeproxy=y"
-    "CONFIG_PACKAGE_luci-i18n-homeproxy-zh-cn=y"
-    "CONFIG_PACKAGE_luci-app-ddns-go=y"
-    "CONFIG_PACKAGE_luci-i18n-ddns-go-zh-cn=y"
     "CONFIG_PACKAGE_luci-app-argon-config=y"
     "CONFIG_PACKAGE_nano=y"
     #"CONFIG_BUSYBOX_CONFIG_LSUSB=n"
-    "CONFIG_PACKAGE_luci-app-netspeedtest=y"
     "CONFIG_PACKAGE_luci-app-vlmcsd=y"
     "CONFIG_COREMARK_OPTIMIZE_O3=y"
     "CONFIG_COREMARK_ENABLE_MULTITHREADING=y"
@@ -175,20 +166,17 @@ provided_config_lines=(
     #"CONFIG_PACKAGE_luci-theme-design=y"
     "CONFIG_PACKAGE_luci-app-filetransfer=y"
     "CONFIG_PACKAGE_openssh-sftp-server=y"
-    "CONFIG_PACKAGE_luci-app-frpc=y" 
     "CONFIG_OPKG_USE_CURL=y"
     "CONFIG_PACKAGE_opkg=y"   
     "CONFIG_USE_APK=n"
-    "CONFIG_PACKAGE_luci-app-tailscale=y"
     #"CONFIG_PACKAGE_luci-app-msd_lite=y"
     #"CONFIG_PACKAGE_luci-app-lucky=y"
-    "CONFIG_PACKAGE_luci-app-gecoosac=y"
 	"CONFIG_PACKAGE_kmod-wireguard=y"
     "CONFIG_PACKAGE_wireguard-tools=y"
 	"CONFIG_PACKAGE_luci-proto-wireguard=y"
-    "CONFIG_PACKAGE_luci-app-cifs-mount=y"
-	"CONFIG_PACKAGE_kmod-fs-cifs=y"
-    "CONFIG_PACKAGE_cifsmount=y"
+    "CONFIG_PACKAGE_wget=y"
+    "CONFIG_PACKAGE_wget-ssl=y"
+	"CONFIG_PACKAGE_coreutils-base64=y"
 )
 
 #[[ $WRT_CONFIG == *"WIFI-NO"* ]] && provided_config_lines+=("CONFIG_PACKAGE_hostapd-common=n" "CONFIG_PACKAGE_wpad-openssl=n")
