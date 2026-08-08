@@ -148,8 +148,8 @@ done
 
 # Configuration lines to append to .config
 provided_config_lines=(
-    "CONFIG_PACKAGE_luci-app-adguardhome=y"
-    "CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y"
+    "CONFIG_PACKAGE_luci-app-adguardhome=n"
+    "CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=n"
     "CONFIG_PACKAGE_cpufreq=y"
     "CONFIG_PACKAGE_luci-app-cpufreq=y"
     "CONFIG_PACKAGE_luci-i18n-cpufreq-zh-cn=y"
@@ -180,7 +180,6 @@ provided_config_lines=(
 	"CONFIG_PACKAGE_coreutils-base64=y"
     "CONFIG_PACKAGE_luci-app-unblockneteasemusic=y"
     "CONFIG_PACKAGE_luci-app-smartdns=y"
-
 	
 )
 
